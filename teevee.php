@@ -73,7 +73,7 @@ function template_loader( $template ) {
 							
 						}
 
-						if ( is_array( $episodes ) ) {
+						if ( is_array( $episodes ) && count( $episodes) > 0 ) {
 							$template = $TeeVee->load_template( 'list.xml', $episodes, $list_title );		
 						} else {
 							$template = $TeeVee->http_error();

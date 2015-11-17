@@ -19,7 +19,7 @@ echo 'var Template = function() { return `<?xml version="1.0" encoding="UTF-8" ?
               <?php if ( $e->cover_uri ): ?>
               <img src="<?= $e->cover_uri ?>" width="1400" height="1400" />
             <?php endif; ?>
-              <title><?= apply_filters( 'the_title', $e->post_title ); ?></title>
+              <title><?= apply_filters( 'the_title', $e->video_title ); ?></title>
               <subtitle><?= esc_html($e->subtitle) ?></subtitle>
               <description><?= esc_html($e->desc) ?></description>
             </lockup>

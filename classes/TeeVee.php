@@ -12,7 +12,6 @@ Class TeeVee {
 
 				$args = array(
 					'posts_per_page'	=>	-1,
-			        'post_type' => 'teevee_video',
 			        'tax_query' => array(
 			            array(
 			                'taxonomy' => 'teevee_series',
@@ -31,20 +30,27 @@ Class TeeVee {
 			return array( 'series' => $series);
 
 		} else {
-			return get_posts('post_type=teevee_video&posts_per_page=-1');	
-
+			// nothing. for now
 		}
 	
 	}
 
 	public function get_latest_episodes() {
+		$terms = get_terms( 'teevee_series', 'fields=names' ); 
+
 		$args = array(
 			'posts_per_page'	=>	10,
-			'post_type'			=> 	'teevee_video',
+			'tax_query'			=>	array(
+										array(
+										'taxonomy'	=>	'teevee_series',
+										'field'		=>	'slug',
+										'terms'		=>	$terms
+										)
+									)
 			);
 
 		$posts = get_posts( $args );
-					$posts = self::set_episode_meta($posts);
+		$posts = self::set_episode_meta($posts);
 
 		return $posts;
 	}
@@ -54,7 +60,6 @@ Class TeeVee {
 		if ( is_numeric($series_id) ) {
 			$args = array(
 				'posts_per_page'	=>	20, //this value is entirely arbitrary
-				'post_type'			=>	'teevee_video',
 				'tax_query'			=> array(
 									array(
 										'taxonomy'	=>	'teevee_series',
@@ -82,20 +87,21 @@ Class TeeVee {
 
 
 				if ( is_numeric($post->ID) ) {
-					$subtitle = get_post_meta( $post->ID, '_teevee_subtitle', true );
-					$desc = get_post_meta( $post->ID, '_teevee_desc', true );
-					$video_uri = get_post_meta( $post->ID, '_teevee_video_uri', true );
+					
+					$title_override = get_post_meta( $post->ID, '_teevee_title_override', true );
+					$post->video_title = ($title_override !== '' ) ? $title_override : $post->title;
+
+					$post->subtitle = get_post_meta( $post->ID, '_teevee_subtitle', true );
+					$post->desc = get_post_meta( $post->ID, '_teevee_desc', true );
+					$post->video_uri = get_post_meta( $post->ID, '_teevee_video_uri', true );
+
 
 					if ( has_post_thumbnail( $post->ID ))
 						$cover_uri = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 					else 
 						$cover_uri[0] = '';
 
-					$post->subtitle = $subtitle;
-					$post->desc = $desc;
-					$post->video_uri = $video_uri;
 					$post->cover_uri = $cover_uri[0];
-
 				}
 				
 			}

@@ -4,9 +4,10 @@
       <menuBar>
          <menuItem template="${this.BASEURL}xml/list.xml.js/?id=latest" presentation="menuBarItemPresenter"><title>Latest Episodes</title></menuItem>';
       if ( $content ) :
-         for( $i = 0; $i < sizeof($content); $i++ ) : ?>
-            <menuItem template="${this.BASEURL}xml/list.xml.js/?id=<?= $content[$i]->term_id ?>" presentation="menuBarItemPresenter"><title><?= apply_filters( 'the_title', $content[$i]->name ); ?></title></menuItem>
-         <?php endfor;
+
+         foreach( $content as $series): ?>
+            <menuItem template="${this.BASEURL}xml/list.xml.js/?id=<?= $series->term_id ?>" presentation="menuBarItemPresenter"><title><?= apply_filters( 'the_title', $series->name ); ?></title></menuItem>
+         <?php endforeach;
       endif;
       echo '</menuBar>
    </menuBarTemplate>
