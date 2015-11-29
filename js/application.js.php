@@ -22,8 +22,8 @@ var createAlert = function(title, description) {
  
 App.onLaunch = function(options) {
   var javascriptFiles = [
-    `${options.PLUGINURL}js/ResourceLoader.js`, 
-    `${options.PLUGINURL}js/Presenter.js`
+    `${options.BASEURL}js/ResourceLoader.js`, 
+    `${options.BASEURL}js/Presenter.js`
   ];
 
   evaluateScripts(javascriptFiles, function(success) {
