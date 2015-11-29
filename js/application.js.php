@@ -1,4 +1,5 @@
-// 1
+<?php
+$content = '
 var resourceLoader;
 
 var createAlert = function(title, description) {  
@@ -20,7 +21,6 @@ var createAlert = function(title, description) {
 
  
 App.onLaunch = function(options) {
-  // 2
   var javascriptFiles = [
     `${options.PLUGINURL}js/ResourceLoader.js`, 
     `${options.PLUGINURL}js/Presenter.js`
@@ -41,6 +41,6 @@ App.onLaunch = function(options) {
       navigationDocument.presentModal(errorDoc);
     }
   });
-}
- 
-// Leave createAlert alone
+}';
+
+echo $content;

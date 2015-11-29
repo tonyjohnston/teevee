@@ -30,6 +30,7 @@ Class TeeVee_Core {
 		add_rewrite_tag( '%teevee-js%', '([^/]+)');
 
 		add_rewrite_rule( '^teeveeclient/xml/([^/]+)?', 'index.php?teeveeclient=true&teevee-template=$matches[1]', 'top' );
+		add_rewrite_rule( '^teeveeclient/js/([^/]+)?', 'index.php?teeveeclient=true&teevee-js=$matches[1]', 'top' );
 	}
 
 	public function tax() {

@@ -1,3 +1,4 @@
+$content = '
 var Presenter = {
     makeDocument: function(resource) {
         if (!Presenter.parser) {
@@ -24,7 +25,7 @@ var Presenter = {
     },
 
     defaultPresenter: function(xml) {
-        console.log('default presenter');
+        console.log(\'default presenter\');
     },
   
 
@@ -40,7 +41,7 @@ var Presenter = {
         if (presentation != "videoPresentation") {
             resourceLoader.loadResource(template, function(resource) {
                 var doc = self.makeDocument(resource);
-                doc.addEventListener('select', self.load.bind(self));
+                doc.addEventListener(\'select\', self.load.bind(self));
 
 
                 if (self[presentation] instanceof Function) {
@@ -49,7 +50,7 @@ var Presenter = {
                     self.defaultPresenter.call(self, doc);
                 }
             });
-        } else if( presentation == 'videoPresentation' ) {
+        } else if( presentation == \'videoPresentation\' ) {
 
             videoURL = ele.getAttribute("videoURL")
 
@@ -73,14 +74,14 @@ var Presenter = {
         /*
         You can reuse documents that have previously been created. In this implementation
         we check to see if a loadingIndicator document has already been created. If it 
-        hasn't then we create one.
+        hasn\'t then we create one.
         */
         if (!this.loadingIndicator) {
             this.loadingIndicator = this.makeDocument(this.loadingTemplate);
         }
         
         /* 
-        Only show the indicator if one isn't already visible and we aren't presenting a modal.
+        Only show the indicator if one isn\'t already visible and we aren\'t presenting a modal.
         */
         if (!this.loadingIndicatorVisible && presentation != "modalDialogPresenter" && presentation != "menuBarItemPresenter") {
             navigationDocument.pushDocument(this.loadingIndicator);
@@ -96,4 +97,6 @@ var Presenter = {
             </activityIndicator>
           </loadingTemplate>
         </document>`
-}
+}';
+
+echo $content;

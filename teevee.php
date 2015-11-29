@@ -89,6 +89,16 @@ function template_loader( $template ) {
 					$template = $TeeVee->http_error();
 					break;
 			}
+		} else if ( get_query_var('teevee-js', false ) ) {
+			$js_file_php = strtolower(get_query_var('teevee-js')).'.php';
+
+			if ( in_array( $js_file_php, array('application.js.php','presenter.js.php','resourceloader.js.php') ) ) {
+				include(plugin_dir_path(__FILE__).'js/'.$js_file_php);
+				$template = '';
+			} else {
+				header('HTTP/1.0 404 Not Found');
+				exit;
+			}
 		}
 
 	}

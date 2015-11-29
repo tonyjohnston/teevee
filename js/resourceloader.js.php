@@ -1,3 +1,5 @@
+<?php
+$content = '
 function ResourceLoader(baseurl) {
   this.BASEURL = baseurl;
 }
@@ -16,4 +18,6 @@ ResourceLoader.prototype.loadResource = function(resource, callback) {
       navigationDocument.presentModal(alert);
     }
   }); 
-}
+}';
+
+echo $content;
