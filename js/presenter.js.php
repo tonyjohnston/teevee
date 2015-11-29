@@ -1,3 +1,4 @@
+<?php
 $content = '
 var Presenter = {
     makeDocument: function(resource) {
