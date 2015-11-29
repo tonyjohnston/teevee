@@ -128,6 +128,7 @@ Class TeeVee {
 		if ( in_array( $template, $valid_templates ) ) {
 			header('content-type: application/x-javascript');
 			include plugin_dir_path( __FILE__ ) . '../xml/'.$template.'.js.php';	
+			return '';
 		} else {
 			header('HTTP/1.0 403 Forbidden');
 			exit;
