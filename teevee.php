@@ -1,10 +1,11 @@
 <?php
 /*
 Plugin Name: AppleTV Bridge
-Version: 0
+Plugin URI: https://github.com/ohryan/teevee
+Version: 1.0
 Author: Ryan Neudorf
-Author URI: http://ohryan.ca/
-License: Dunno yet
+Author URI: https://ohryan.ca/
+License: MIT
 */
 
 namespace ohryan\TeeVee;
