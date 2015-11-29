@@ -2,6 +2,7 @@
 /*
 Plugin Name: AppleTV Bridge
 Plugin URI: https://github.com/ohryan/teevee
+Description: Teevee for WP acts as a bridge between WordPress and a custom Apple TV TVML app.
 Version: 1.0
 Author: Ryan Neudorf
 Author URI: https://ohryan.ca/
