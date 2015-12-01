@@ -17,11 +17,8 @@ var Presenter = {
 
         if (feature) {
         
-            var currentDoc = feature.getDocument(ele);
-        
-            if (!currentDoc) {
-                feature.setDocument(xml, ele);
-            }
+            // var currentDoc = feature.getDocument(ele);
+            feature.setDocument(xml, ele);
         }
     },
 
@@ -36,7 +33,6 @@ var Presenter = {
             presentation = ele.getAttribute("presentation"),
             template = ele.getAttribute("template");
 
-        console.log(presentation, template);
         self.showLoadingIndicator(presentation);
 
         if (presentation != "videoPresentation") {
