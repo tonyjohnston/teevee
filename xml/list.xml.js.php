@@ -13,7 +13,7 @@ echo 'var Template = function() { return `<?xml version="1.0" encoding="UTF-8" ?
             $e = $content[$i]; ?>
       
         <listItemLockup videoURL="<?= $e->video_uri ?>" presentation="videoPresentation">
-          <title><?= apply_filters( 'the_title', $e->post_title ); ?></title>
+          <title><?= apply_filters( 'the_title', $e->video_title ); ?></title>
           <relatedContent>
             <lockup >
               <?php if ( $e->cover_uri ): ?>
