@@ -4,6 +4,8 @@ Teevee for WP is a WordPress plugin that acts as a bridge between WordPress and 
 
 In wp-admin, the plugin allows content creators to attach video meta data to a WordPress post. The plugin uses this meta data to provide end-points for Apple's TVML XML. 
 
+[![Screenshot](screenshot.png)]
+
 The plugins creates a `menuBarTemplate` with a list with `menuItems` for each TV series, with a "Latest" items displaying most recent show. Episodes are displayed in a TVML `listTemplate`.
 
 Check out the [Apple TV Markup Language reference](https://developer.apple.com/library/tvos/documentation/LanguagesUtilities/Conceptual/ATV_Template_Guide/TextboxTemplate.html#//apple_ref/doc/uid/TP40015064-CH2-SW8) for more info.
